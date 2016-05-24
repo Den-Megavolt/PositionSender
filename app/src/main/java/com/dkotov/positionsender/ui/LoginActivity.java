@@ -1,4 +1,4 @@
-package com.dkotov.positionsender;
+package com.dkotov.positionsender.ui;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -32,11 +32,14 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.dkotov.positionsender.R;
+
 import static android.Manifest.permission.READ_CONTACTS;
 
 /**
  * A login screen that offers login via email/password.
  */
+@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
 
     /**
