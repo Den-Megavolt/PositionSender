@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Strings related to login -->
+    <string name="prompt_password">Пароль</string>
+    <string name="prompt_login">Логин</string>
+    <string name="action_sign_in">Войти или зарегистрироваться</string>
+    <string name="action_connect">Поключиться</string>
+    <string name="action_disconnect">Отключиться</string>
+    <string name="action_sign_in_short">Войти</string>
+    <string name="error_field_required">Это поле обязательно</string>
+    <string name="error_incorrect_password">Неверный пароль</string>
+    <string name="error_invalid_email">Некорректный Email</string>
+    <string name="error_invalid_password">Некорректный пароль</string>
+    <string name="permission_rationale">Необходимо разрешение на чтение контактов</string>
+    <string name="title_activity_login">Войти</string>
+    <string name="title_activity_maps">Карта</string>
+    <string name="action_settings">Настройки</string>
+    <string name="error_invalid_login">Некорректный логин</string>
+    <string name="error_short_password">Пароль слишком короткий</string>
+</resources>
