@@ -47,6 +47,7 @@ public class PositionService extends Service {
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
+        mPositionSender.start();
         Toast.makeText(getBaseContext(), "Service started", Toast.LENGTH_SHORT).show();
         return START_STICKY;
     }
@@ -66,6 +67,7 @@ public class PositionService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
+        mPositionSender.interrupt();
         Toast.makeText(getBaseContext(), "Service stopped", Toast.LENGTH_SHORT).show();
     }
 }
