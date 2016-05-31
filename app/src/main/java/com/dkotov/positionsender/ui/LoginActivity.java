@@ -17,6 +17,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.dkotov.positionsender.R;
+import com.dkotov.positionsender.ws.PositionService;
 import com.dkotov.positionsender.ws.SocketHelper;
 
 import java.lang.reflect.InvocationTargetException;
@@ -189,21 +190,25 @@ public class LoginActivity extends AppCompatActivity {
         protected Boolean doInBackground(Void... params) {
             // TODO: attempt authentication against a network service.
 
-            try {
-                mSocketHelper = new SocketHelper();
-                Method connectWebSocketMethod = SocketHelper.class.getDeclaredMethod("connectWebSocket", String.class, String.class);
-                connectWebSocketMethod.setAccessible(true);
-                connectWebSocketMethod.invoke(mSocketHelper, mLogin, mPassword);
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                return false;
-            } catch (NoSuchMethodException e) {
-                e.printStackTrace();
-            } catch (InvocationTargetException e) {
-                e.printStackTrace();
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            }
+//            try {
+//                mSocketHelper = new SocketHelper();
+//                Method connectWebSocketMethod = SocketHelper.class.getDeclaredMethod("connectWebSocket", String.class, String.class);
+//                connectWebSocketMethod.setAccessible(true);
+//                connectWebSocketMethod.invoke(mSocketHelper, mLogin, mPassword);
+//                Thread.sleep(2000);
+//            } catch (InterruptedException e) {
+//                return false;
+//            } catch (NoSuchMethodException e) {
+//                e.printStackTrace();
+//            } catch (InvocationTargetException e) {
+//                e.printStackTrace();
+//            } catch (IllegalAccessException e) {
+//                e.printStackTrace();
+//            }
+            Intent intent = new Intent();
+            intent.putExtra("login", mLogin);
+            intent.putExtra("password", mPassword);
+            startService(new Intent(getBaseContext(), PositionService.class));
 
             for (String credential : DUMMY_CREDENTIALS) {
                 String[] pieces = credential.split(":");
@@ -237,6 +242,7 @@ public class LoginActivity extends AppCompatActivity {
             mAuthTask = null;
             showProgress(false);
         }
+
     }
 }
 
